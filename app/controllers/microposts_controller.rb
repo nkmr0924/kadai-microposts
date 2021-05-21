@@ -32,4 +32,8 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     end
   end
+  
+  def feed_favorites
+    Favorite.where(micropost_id: self.favoriting_ids + [self.id])
+  end
 end
